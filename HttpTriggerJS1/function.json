@@ -1,0 +1,34 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "documentDB",
+      "name": "outputDocument",
+      "databaseName": "Tasks",
+      "collectionName": "Items",
+      "createIfNotExists": true,
+      "connection": "cosmosdbtimer_DOCUMENTDB",
+      "direction": "out"
+    },
+    {
+      "name": "documents",
+      "type": "documentdb",
+      "direction": "in",
+      "databaseName": "Tasks",
+      "collectionName": "Items",
+      "sqlQuery": "SELECT * from c where c.id = {id}",
+      "connection": "cosmosdbtimer_DOCUMENTDB"
+    }
+  ],
+  "disabled": false
+}

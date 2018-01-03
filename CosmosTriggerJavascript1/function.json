@@ -1,0 +1,15 @@
+{
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "input",
+      "direction": "in",
+      "leaseCollectionName": "leases",
+      "connectionStringSetting": "cosmosdbtimer_DOCUMENTDB",
+      "databaseName": "Tasks",
+      "collectionName": "Items",
+      "createLeaseCollectionIfNotExists": true
+    }
+  ],
+  "disabled": false
+}

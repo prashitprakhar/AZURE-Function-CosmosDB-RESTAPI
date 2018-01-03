@@ -1,0 +1,14 @@
+{
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "input",
+      "direction": "in",
+      "leaseCollectionName": "leases",
+      "connectionStringSetting": "leasesTrigger_ConnectionString",
+      "databaseName": "Tasks",
+      "collectionName": "leases",
+      "createLeaseCollectionIfNotExists": true
+    }
+  ]
+}
