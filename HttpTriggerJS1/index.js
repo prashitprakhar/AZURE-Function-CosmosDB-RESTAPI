@@ -1,4 +1,4 @@
-module.exports = function tableRouter(context, req) {
+function tableRouter(context, req, documents) {
     const res = context.res;
     const id = context.bindingData.id;
  
@@ -40,7 +40,7 @@ function getOneItem(req, res, id) {
     else{
         res = {
             status: 400,
-            body: "The Given ID is not valid. Please enter a valid 'ID'";
+            body: "The Given ID is not valid. Please enter a valid 'ID'"
         };
     }
 }
