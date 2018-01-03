@@ -46,7 +46,7 @@ function getOneItem(context, req, res, id) {
 }
  
 function getAllItems(context, req, res) {
-    res.status(200).json({AllInputs : context.bindings.allsocuments });
+    res.status(200).json({"AllInputs" : context.bindings.allsocuments });
 }
  
 function insertItem(req, res) {
