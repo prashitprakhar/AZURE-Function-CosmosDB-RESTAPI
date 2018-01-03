@@ -33,7 +33,7 @@ function tableRouter(context, req, documents) {
 }
  
 function getOneItem(context, req, res, id) {
-    if(id!='undefined' || id!='null'){
+    if(id!='undefined' || id!='null' || context.bindingData.statusCode==200){
     res.status(200).json({ id: id,
                         "name": context.bindings.documents[0].name });
     }
