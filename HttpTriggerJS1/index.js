@@ -1,4 +1,4 @@
-function tableRouter(context, req, documents) {
+function tableRouter(context, req) {
     const res = context.res;
     const id = context.bindingData.id;
  
@@ -7,7 +7,7 @@ function tableRouter(context, req, documents) {
             if (id) {
                 getOneItem(context, req, res, id);
             } else {
-                getAllItems(req, res);
+                getAllItems(context, req, res);
             }
             break;
  
@@ -45,8 +45,8 @@ function getOneItem(context, req, res, id) {
     }
 }
  
-function getAllItems(req, res) {
-    res.status(200).json({ query: req.query, message: "getAll" });
+function getAllItems(context, req, res) {
+    res.status(200).json({AllInputs : context.bindings.allsocuments });
 }
  
 function insertItem(req, res) {

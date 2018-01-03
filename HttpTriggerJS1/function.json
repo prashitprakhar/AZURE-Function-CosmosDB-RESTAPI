@@ -29,6 +29,15 @@
       "direction": "out"
     },
     {
+      "name": "alldocuments",
+      "type": "documentdb",
+      "direction": "in",
+      "databaseName": "Tasks",
+      "collectionName": "Items",
+      "sqlQuery": "SELECT * from c",
+      "connection": "cosmosdbtimer_DOCUMENTDB"
+    },
+    {
       "name": "documents",
       "type": "documentdb",
       "direction": "in",
