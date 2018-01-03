@@ -5,7 +5,7 @@ function tableRouter(context, req, documents) {
     switch (req.method) {
         case 'GET':
             if (id) {
-                getOneItem(req, res, id);
+                getOneItem(context, req, res, id);
             } else {
                 getAllItems(req, res);
             }
@@ -32,7 +32,7 @@ function tableRouter(context, req, documents) {
     }
 }
  
-function getOneItem(req, res, id) {
+function getOneItem(context, req, res, id) {
     if(id!='undefined' || id!='null'){
     res.status(200).json({ id: id,
                         "name": context.bindings.documents[0].name });
