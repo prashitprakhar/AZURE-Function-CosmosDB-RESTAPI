@@ -4,7 +4,15 @@
       "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
-      "name": "req"
+      "name": "req",
+      "methods": [
+        "get",
+        "post",
+        "put",
+        "patch",
+        "delete"     
+      ],
+      "route": "tables/todoitem/{id:alpha?}"
     },
     {
       "type": "http",
