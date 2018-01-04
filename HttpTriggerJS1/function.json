@@ -10,9 +10,9 @@
         "post",
         "put",
         "patch",
-        "delete"     
+        "delete"
       ],
-      "route": "tables/todoitem/{id:alpha?}"
+      "route": "{id:alpha?}"
     },
     {
       "type": "http",
@@ -43,7 +43,7 @@
       "databaseName": "Tasks",
       "collectionName": "Items",
       "createIfNotExists": true,
-      "connection": "cosmosdbtimer_DOCUMENTDB",     
+      "connection": "cosmosdbtimer_DOCUMENTDB",
       "direction": "out"
     }
   ],
