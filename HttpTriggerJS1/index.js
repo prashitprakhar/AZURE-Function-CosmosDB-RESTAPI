@@ -12,7 +12,7 @@ function tableRouter(context, req) {
             break;
  
         case 'POST':
-            insertItem(req, res);
+            insertItem(context, req, res);
             break;
  
         case 'PATCH':
@@ -33,24 +33,33 @@ function tableRouter(context, req) {
 }
  
 function getOneItem(context, req, res, id) {
-    if(id!='undefined' || id!='null' || context.bindingData.statusCode==200){
+    if(context.bindings.documents.length >0){
+        context.log(context.bindings.documents.length);
     res.status(200).json({ id: id,
                         "name": context.bindings.documents[0].name });
     }
     else{
-        res = {
-            status: 400,
-            body: "The Given ID is not valid. Please enter a valid 'ID'"
-        };
+        res.status(400).json({
+            "body": "The Given ID is not valid. Please enter a valid 'ID'"
+        });
     }
-}
+};
  
 function getAllItems(context, req, res) {
-    res.status(200).json({"AllInputs" : context.bindings.allsocuments });
-}
+        context.log(context.bindings.alldocuments[0].name);
+    //res.status(200).json({"AllInputs" : context.bindings.alldocuments });
+};
  
-function insertItem(req, res) {
-    res.status(200).json({ body: req.body, message: "insert"});
+function insertItem(context, req, res) {
+    //id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId
+    context.bindings.employeeDocument = JSON.stringify({ 
+        id: context.bindings.myQueueItem.id,
+        name: context.bindings.myQueueItem.name
+      });
+
+      context.done();
+
+    //res.status(200).json({ body: req.body, message: "insert"});
 }
  
 function patchItem(req, res, id) {

@@ -20,15 +20,6 @@
       "name": "res"
     },
     {
-      "type": "documentDB",
-      "name": "outputDocument",
-      "databaseName": "Tasks",
-      "collectionName": "Items",
-      "createIfNotExists": true,
-      "connection": "cosmosdbtimer_DOCUMENTDB",
-      "direction": "out"
-    },
-    {
       "name": "alldocuments",
       "type": "documentdb",
       "direction": "in",
@@ -45,6 +36,15 @@
       "collectionName": "Items",
       "sqlQuery": "SELECT * from c where c.id = {id}",
       "connection": "cosmosdbtimer_DOCUMENTDB"
+    },
+    {
+      "name": "employeeDocument",
+      "type": "documentdb",
+      "databaseName": "Tasks",
+      "collectionName": "Items",
+      "createIfNotExists": true,
+      "connection": "cosmosdbtimer_DOCUMENTDB",     
+      "direction": "out"
     }
   ],
   "disabled": false
